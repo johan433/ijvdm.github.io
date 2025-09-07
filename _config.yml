@@ -1,0 +1,15 @@
+title: Johan van der Merwe
+description: Personal website
+url: "https://ijvdm.github.io"
+baseurl: ""
+
+markdown: kramdown
+highlighter: rouge
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - README.md
