@@ -340,5 +340,40 @@
             </div>
         </div>
     </main>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            const publicationCards = document.querySelectorAll('.publication-card');
+            
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    const filterValue = this.textContent.trim();
+                    
+                    publicationCards.forEach(card => {
+                        if (filterValue === 'All Work') {
+                            card.style.display = 'block';
+                        } else {
+                            const tags = card.querySelectorAll('.tag');
+                            const hasMatchingTag = Array.from(tags).some(tag => {
+                                const tagText = tag.textContent.trim();
+                                return (filterValue === 'Theology & Ethics' && (tagText.includes('Theology') || tagText.includes('Ethics') || tagText.includes('Biblical'))) ||
+                                       (filterValue === 'AI Ethics' && (tagText.includes('AI') || tagText.includes('Responsible AI'))) ||
+                                       (filterValue === 'Supervisions' && tagText.includes('Supervision')) ||
+                                       (filterValue === 'Research Projects' && (tagText.includes('Research') || tagText.includes('MBA')));
+                            });
+                            
+                            card.style.display = hasMatchingTag ? 'block' : 'none';
+                        }
+                    });
+                });
+            });
+        });
+    </script>
 </body>
 </html>
