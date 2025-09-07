@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Johan van der Merwe</title>
+    <title>Johan van der Merwe - Researcher & Theorist</title>
     <style>
         * {
             margin: 0;
@@ -14,71 +14,33 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #fff;
-            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b, #eb4d4b, #6c5ce7);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            overflow-x: hidden;
-            position: relative;
-        }
-        
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
-        }
-        
-        .sparkles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 1;
-        }
-        
-        .sparkle {
-            position: absolute;
-            width: 4px;
-            height: 4px;
+            color: #333;
             background: #fff;
-            border-radius: 50%;
-            animation: twinkle 2s infinite;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 0; transform: scale(0); }
-            50% { opacity: 1; transform: scale(1); }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
         
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #fff;
+            color: #2c3e50;
             text-decoration: none;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
         .nav-menu {
@@ -88,184 +50,310 @@
         }
         
         .nav-menu a {
-            color: #fff;
+            color: #555;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
         }
         
-        .nav-menu a:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        .nav-menu a:hover, .nav-menu a.active {
+            color: #2c3e50;
+            border-bottom-color: #3498db;
         }
         
-        .nav-menu a:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            transition: left 0.5s;
+        main {
+            margin-top: 80px;
         }
         
-        .nav-menu a:hover:before {
-            left: 100%;
+        .hero {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
+            text-align: center;
         }
         
-        .main-content {
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .hero .description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+            opacity: 0.8;
+        }
+        
+        .cta-buttons {
             display: flex;
-            align-items: center;
+            gap: 1rem;
             justify-content: center;
-            min-height: 100vh;
-            padding: 2rem;
-            position: relative;
-            z-index: 10;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-primary {
+            background: #3498db;
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid white;
+        }
+        
+        .btn-secondary:hover {
+            background: white;
+            color: #667eea;
+        }
+        
+        .section {
+            padding: 4rem 2rem;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 300;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #2c3e50;
         }
         
         .container {
-            text-align: center;
-            max-width: 600px;
-            position: relative;
+            max-width: 1200px;
+            margin: 0 auto;
         }
         
-        h1 {
-            font-size: 4rem;
-            font-weight: 700;
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card h3 {
+            font-size: 1.5rem;
             margin-bottom: 1rem;
-            letter-spacing: -0.02em;
-            background: linear-gradient(45deg, #fff, #ffeb3b, #ff5722, #e91e63, #9c27b0);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: rainbowText 3s ease-in-out infinite, bounce 2s ease-in-out infinite;
-            text-shadow: 0 0 30px rgba(255, 255, 255, 0.5);
+            color: #2c3e50;
         }
         
-        @keyframes rainbowText {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .card p {
+            color: #666;
+            margin-bottom: 1.5rem;
         }
         
-        @keyframes bounce {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-10px); }
-        }
-        
-        .greeting {
-            font-size: 1.8rem;
-            color: #fff;
-            font-weight: 600;
-            text-shadow: 0 0 20px rgba(255, 255, 255, 0.7);
-            animation: glow 2s ease-in-out infinite alternate;
-            margin-bottom: 2rem;
-        }
-        
-        @keyframes glow {
-            from { text-shadow: 0 0 20px rgba(255, 255, 255, 0.7); }
-            to { text-shadow: 0 0 30px rgba(255, 255, 255, 1), 0 0 40px rgba(255, 255, 255, 0.8); }
-        }
-        
-        .cta-button {
-            display: inline-block;
-            padding: 1rem 2rem;
-            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24);
-            background-size: 300% 300%;
-            color: #fff;
+        .card-link {
+            color: #3498db;
             text-decoration: none;
-            border-radius: 50px;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            animation: gradientMove 3s ease infinite, pulse 2s ease-in-out infinite;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
+            font-weight: 500;
         }
         
-        .cta-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+        .card-link:hover {
+            text-decoration: underline;
         }
         
-        @keyframes gradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .stats {
+            background: #f8f9fa;
         }
         
-        @keyframes pulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.05); }
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            text-align: center;
+        }
+        
+        .stat {
+            padding: 1.5rem;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            display: block;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 0.5rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
         }
         
         @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
             .nav-menu {
                 gap: 1rem;
             }
             
-            .nav-menu a {
-                padding: 0.3rem 0.8rem;
-                font-size: 0.9rem;
-            }
-            
-            h1 {
-                font-size: 2.5rem;
-            }
-            
-            .greeting {
-                font-size: 1.3rem;
+            .section-title {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="sparkles" id="sparkles"></div>
-    
-    <nav>
-        <div class="nav-container">
-            <a href="#" class="logo">JvdM</a>
+    <header>
+        <nav>
+            <a href="#" class="logo">Johan van der Merwe</a>
             <ul class="nav-menu">
-                <li><a href="about.html">About</a></li>
-                <li><a href="publications.html">Publications</a></li>
-                <li><a href="theory-of-everything.html">Theory of Everything</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#research">Research</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#theory">Theory</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
     
-    <div class="main-content">
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Johan van der Merwe</h1>
+                <p class="subtitle">Theoretical Physicist & Research Scientist</p>
+                <p class="description">
+                    Exploring the fundamental nature of reality through advanced theoretical physics, 
+                    quantum mechanics, and consciousness studies. Working towards a unified Theory of Everything.
+                </p>
+                <div class="cta-buttons">
+                    <a href="#research" class="btn btn-primary">View Research</a>
+                    <a href="#publications" class="btn btn-secondary">Publications</a>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">Research Focus</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Quantum Mechanics</h3>
+                        <p>Investigating the fundamental principles of quantum mechanics and its implications for our understanding of reality, consciousness, and information processing.</p>
+                        <a href="#" class="card-link">Learn More →</a>
+                    </div>
+                    <div class="card">
+                        <h3>Theoretical Physics</h3>
+                        <p>Developing mathematical frameworks that unify quantum mechanics and general relativity, with focus on emergent spacetime and information geometry.</p>
+                        <a href="#" class="card-link">Learn More →</a>
+                    </div>
+                    <div class="card">
+                        <h3>Consciousness Studies</h3>
+                        <p>Exploring the role of consciousness in physical processes and developing theories that bridge the gap between mind and matter.</p>
+                        <a href="#" class="card-link">Learn More →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="section stats">
+            <div class="container">
+                <h2 class="section-title">Research Impact</h2>
+                <div class="stats-grid">
+                    <div class="stat">
+                        <span class="stat-number">15+</span>
+                        <div class="stat-label">Published Papers</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">3</span>
+                        <div class="stat-label">Research Areas</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">5+</span>
+                        <div class="stat-label">Years Research</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1</span>
+                        <div class="stat-label">Theory of Everything</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="publications" class="section">
+            <div class="container">
+                <h2 class="section-title">Latest Publications</h2>
+                <div class="grid">
+                    <div class="card">
+                        <h3>Quantum Mechanics and Reality</h3>
+                        <p>A comprehensive exploration of quantum measurement and the role of consciousness in determining physical outcomes.</p>
+                        <a href="publications.html" class="card-link">Read Paper →</a>
+                    </div>
+                    <div class="card">
+                        <h3>Mathematics of Everything</h3>
+                        <p>Presenting a unified mathematical framework that derives fundamental constants from geometric principles.</p>
+                        <a href="publications.html" class="card-link">Read Paper →</a>
+                    </div>
+                    <div class="card">
+                        <h3>Information & Universe</h3>
+                        <p>An interdisciplinary study examining consciousness as a fundamental feature of information processing in the universe.</p>
+                        <a href="publications.html" class="card-link">Read Paper →</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <footer>
         <div class="container">
-            <h1>Johan van der Merwe</h1>
-            <p class="greeting">Hi, I'm Johan van der Merwe</p>
-            <a href="about.html" class="cta-button">Explore My World</a>
+            <p>&copy; 2024 Johan van der Merwe. All rights reserved.</p>
         </div>
-    </div>
-
-    <script>
-        function createSparkle() {
-            const sparkle = document.createElement('div');
-            sparkle.className = 'sparkle';
-            sparkle.style.left = Math.random() * 100 + '%';
-            sparkle.style.top = Math.random() * 100 + '%';
-            sparkle.style.animationDelay = Math.random() * 2 + 's';
-            sparkle.style.animationDuration = (Math.random() * 3 + 2) + 's';
-            document.getElementById('sparkles').appendChild(sparkle);
-            
-            setTimeout(() => {
-                sparkle.remove();
-            }, 5000);
-        }
-        
-        setInterval(createSparkle, 300);
-        
-        for (let i = 0; i < 50; i++) {
-            createSparkle();
-        }
-    </script>
+    </footer>
 </body>
 </html>

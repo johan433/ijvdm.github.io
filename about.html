@@ -14,46 +14,33 @@
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             line-height: 1.6;
-            color: #fff;
-            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b, #eb4d4b, #6c5ce7);
-            background-size: 400% 400%;
-            animation: gradientShift 15s ease infinite;
-            min-height: 100vh;
-            overflow-x: hidden;
+            color: #333;
+            background: #fff;
         }
         
-        @keyframes gradientShift {
-            0% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-            100% { background-position: 0% 50%; }
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
         }
         
         nav {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 100;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-            padding: 1rem 2rem;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .nav-container {
             max-width: 1200px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 1rem 2rem;
         }
         
         .logo {
             font-size: 1.5rem;
             font-weight: 700;
-            color: #fff;
+            color: #2c3e50;
             text-decoration: none;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
         .nav-menu {
@@ -63,114 +50,209 @@
         }
         
         .nav-menu a {
-            color: #fff;
+            color: #555;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 25px;
+            padding: 0.5rem 0;
+            border-bottom: 2px solid transparent;
             transition: all 0.3s ease;
         }
         
         .nav-menu a:hover, .nav-menu a.active {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+            color: #2c3e50;
+            border-bottom-color: #3498db;
         }
         
-        .content {
-            max-width: 800px;
+        main {
+            margin-top: 80px;
+            padding: 4rem 2rem;
+        }
+        
+        .container {
+            max-width: 1000px;
             margin: 0 auto;
-            padding: 8rem 2rem 4rem;
         }
         
-        .page-title {
-            font-size: 3rem;
-            font-weight: 700;
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 4rem 2rem;
             text-align: center;
-            margin-bottom: 2rem;
-            background: linear-gradient(45deg, #fff, #ffeb3b, #ff5722);
-            background-size: 300% 300%;
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-            animation: rainbowText 3s ease-in-out infinite;
+            border-radius: 15px;
+            margin-bottom: 4rem;
         }
         
-        @keyframes rainbowText {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        
-        .content-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(15px);
-            border-radius: 20px;
-            padding: 3rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-        
-        .content-card h2 {
-            font-size: 2rem;
+        .hero-section h1 {
+            font-size: 3rem;
+            font-weight: 300;
             margin-bottom: 1rem;
-            color: #fff;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
         
-        .content-card p {
-            font-size: 1.1rem;
-            line-height: 1.8;
-            margin-bottom: 1.5rem;
-            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        .hero-section .subtitle {
+            font-size: 1.3rem;
+            opacity: 0.9;
+        }
+        
+        .content-section {
+            margin-bottom: 3rem;
+        }
+        
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .bio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .bio-card {
+            background: #fff;
+            border-radius: 10px;
+            padding: 2.5rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            border-left: 4px solid #3498db;
+        }
+        
+        .bio-card h3 {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .bio-card p {
+            color: #666;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+        
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .expertise-item {
+            text-align: center;
+            padding: 2rem;
+            background: #f8f9fa;
+            border-radius: 10px;
+        }
+        
+        .expertise-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .expertise-item h4 {
+            font-size: 1.2rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .expertise-item p {
+            color: #666;
+            font-size: 0.9rem;
         }
         
         @media (max-width: 768px) {
-            .page-title {
+            .hero-section h1 {
                 font-size: 2rem;
             }
             
-            .content-card {
+            .bio-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .bio-card {
                 padding: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">JvdM</a>
+    <header>
+        <nav>
+            <a href="index.html" class="logo">Johan van der Merwe</a>
             <ul class="nav-menu">
+                <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About</a></li>
                 <li><a href="publications.html">Publications</a></li>
                 <li><a href="theory-of-everything.html">Theory of Everything</a></li>
             </ul>
-        </div>
-    </nav>
+        </nav>
+    </header>
     
-    <div class="content">
-        <h1 class="page-title">About Johan</h1>
-        
-        <div class="content-card">
-            <h2>Welcome to My Colorful World!</h2>
-            <p>Hi there! I'm Johan van der Merwe, and you've just stepped into my vibrant digital universe. This isn't just another website – it's a celebration of ideas, discovery, and the beautiful complexity of our world.</p>
+    <main>
+        <div class="container">
+            <div class="hero-section">
+                <h1>About Johan van der Merwe</h1>
+                <p class="subtitle">Theoretical Physicist & Research Scientist</p>
+            </div>
             
-            <p>I believe that knowledge should be as exciting and dynamic as the questions that drive us to seek it. That's why you'll find this space bursting with color and energy, much like the thoughts and theories that keep me awake at night.</p>
+            <div class="content-section">
+                <div class="bio-grid">
+                    <div class="bio-card">
+                        <h3>Background & Education</h3>
+                        <p>My academic journey began with a deep fascination for the fundamental questions of physics and consciousness. With advanced degrees in theoretical physics and extensive research experience, I've dedicated my career to understanding the deepest principles governing our universe.</p>
+                        <p>My interdisciplinary approach combines rigorous mathematical frameworks with philosophical inquiry, bridging the gap between hard sciences and consciousness studies.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <h3>Research Philosophy</h3>
+                        <p>I believe that the most profound discoveries emerge at the intersection of disciplines. My work seeks to unify quantum mechanics, general relativity, information theory, and consciousness studies into a coherent framework.</p>
+                        <p>Rather than viewing these as separate domains, I explore how they might represent different aspects of a single, underlying reality – a perspective that drives my pursuit of a Theory of Everything.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <h3>Current Focus</h3>
+                        <p>My current research centers on developing mathematical models that describe consciousness as a fundamental feature of the universe, similar to mass or charge. This work has implications for quantum mechanics, information processing, and our understanding of reality itself.</p>
+                        <p>I'm particularly interested in how information geometry might provide the mathematical foundation for a unified theory that encompasses both physical and conscious phenomena.</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <h3>Vision & Goals</h3>
+                        <p>My ultimate goal is to contribute to humanity's understanding of reality through rigorous scientific investigation. I envision a future where the artificial boundaries between physics, consciousness, and information theory dissolve into a unified understanding.</p>
+                        <p>Through my research, publications, and theoretical work, I aim to advance our collective knowledge and inspire the next generation of scientists and thinkers.</p>
+                    </div>
+                </div>
+                
+                <h2 class="section-title">Areas of Expertise</h2>
+                
+                <div class="expertise-grid">
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🔬</div>
+                        <h4>Theoretical Physics</h4>
+                        <p>Advanced mathematical modeling, quantum field theory, general relativity</p>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🧠</div>
+                        <h4>Consciousness Studies</h4>
+                        <p>Quantum consciousness, information processing, mind-matter interaction</p>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">📊</div>
+                        <h4>Information Theory</h4>
+                        <p>Information geometry, computational models, entropy and complexity</p>
+                    </div>
+                    
+                    <div class="expertise-item">
+                        <div class="expertise-icon">🌌</div>
+                        <h4>Unified Field Theory</h4>
+                        <p>Theory of everything, fundamental unification, emergent spacetime</p>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <div class="content-card">
-            <h2>My Journey</h2>
-            <p>Every great journey begins with curiosity, and mine started with a simple question: "What if we could understand everything?" This led me down countless rabbit holes of research, discovery, and wonder.</p>
-            
-            <p>From the smallest particles to the grandest cosmic structures, from ancient philosophies to cutting-edge theories, I'm on a quest to connect the dots and find the patterns that bind our reality together.</p>
-        </div>
-        
-        <div class="content-card">
-            <h2>What You'll Find Here</h2>
-            <p>This space is where I share my explorations, findings, and wild theories. You'll discover my published works, my ongoing research, and perhaps most ambitiously – my attempts at formulating a Theory of Everything.</p>
-            
-            <p>Whether you're a fellow researcher, a curious mind, or someone who just loves to explore new ideas, I invite you to dive in and join the conversation!</p>
-        </div>
-    </div>
+    </main>
 </body>
 </html>
