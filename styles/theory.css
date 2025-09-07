@@ -1,0 +1,180 @@
+/* Theory of Everything Page Specific Styles */
+
+main {
+    padding: 4rem 2rem;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.theory-overview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.overview-card {
+    background: #fff;
+    border-radius: 10px;
+    padding: 2.5rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    border-top: 4px solid #3498db;
+}
+
+.overview-card h3 {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.overview-card p {
+    color: #666;
+    line-height: 1.7;
+}
+
+.theory-details {
+    background: #f8f9fa;
+    border-radius: 15px;
+    padding: 3rem;
+    margin-bottom: 4rem;
+}
+
+.principles-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.principle-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    border-left: 4px solid #e74c3c;
+}
+
+.principle-title {
+    font-size: 1.3rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.principle-text {
+    color: #555;
+    line-height: 1.7;
+}
+
+.formula-section {
+    background: #2c3e50;
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    margin: 3rem 0;
+    text-align: center;
+}
+
+.formula-title {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    opacity: 0.9;
+}
+
+.formula {
+    font-size: 1.8rem;
+    font-family: 'Courier New', monospace;
+    color: #f39c12;
+    margin: 1.5rem 0;
+    padding: 1rem;
+    background: rgba(0,0,0,0.3);
+    border-radius: 10px;
+    display: inline-block;
+}
+
+.formula-explanation {
+    margin-top: 1rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+.progress-section {
+    background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+    color: white;
+    padding: 3rem;
+    border-radius: 15px;
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.progress-title {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.progress-bar {
+    background: rgba(255,255,255,0.2);
+    height: 20px;
+    border-radius: 10px;
+    margin: 2rem auto;
+    max-width: 400px;
+    overflow: hidden;
+}
+
+.progress-fill {
+    background: #fff;
+    height: 100%;
+    width: 73%;
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.progress-text {
+    font-size: 1.1rem;
+    opacity: 0.9;
+    margin-top: 1rem;
+}
+
+.implications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+}
+
+.implication-card {
+    background: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    border-top: 3px solid #9b59b6;
+}
+
+.implication-card h4 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+}
+
+.implication-card p {
+    color: #666;
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .theory-overview {
+        grid-template-columns: 1fr;
+    }
+    
+    .principles-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .theory-details {
+        padding: 2rem;
+    }
+}
