@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Johan van der Merwe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(-45deg, #ff6b6b, #4ecdc4, #45b7d1, #f9ca24, #f0932b, #eb4d4b, #6c5ce7);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+        
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3);
+        }
+        
+        .content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+        }
+        
+        .page-title {
+            font-size: 3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #ffeb3b, #ff5722);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: rainbowText 3s ease-in-out infinite;
+        }
+        
+        @keyframes rainbowText {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        .content-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            border-radius: 20px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .content-card h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: #fff;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+        
+        .content-card p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2rem;
+            }
+            
+            .content-card {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">JvdM</a>
+            <ul class="nav-menu">
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="theory-of-everything.html">Theory of Everything</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <h1 class="page-title">About Johan</h1>
+        
+        <div class="content-card">
+            <h2>Welcome to My Colorful World!</h2>
+            <p>Hi there! I'm Johan van der Merwe, and you've just stepped into my vibrant digital universe. This isn't just another website – it's a celebration of ideas, discovery, and the beautiful complexity of our world.</p>
+            
+            <p>I believe that knowledge should be as exciting and dynamic as the questions that drive us to seek it. That's why you'll find this space bursting with color and energy, much like the thoughts and theories that keep me awake at night.</p>
+        </div>
+        
+        <div class="content-card">
+            <h2>My Journey</h2>
+            <p>Every great journey begins with curiosity, and mine started with a simple question: "What if we could understand everything?" This led me down countless rabbit holes of research, discovery, and wonder.</p>
+            
+            <p>From the smallest particles to the grandest cosmic structures, from ancient philosophies to cutting-edge theories, I'm on a quest to connect the dots and find the patterns that bind our reality together.</p>
+        </div>
+        
+        <div class="content-card">
+            <h2>What You'll Find Here</h2>
+            <p>This space is where I share my explorations, findings, and wild theories. You'll discover my published works, my ongoing research, and perhaps most ambitiously – my attempts at formulating a Theory of Everything.</p>
+            
+            <p>Whether you're a fellow researcher, a curious mind, or someone who just loves to explore new ideas, I invite you to dive in and join the conversation!</p>
+        </div>
+    </div>
+</body>
+</html>

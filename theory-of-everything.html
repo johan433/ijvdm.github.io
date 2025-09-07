@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Theory of Everything - Johan van der Merwe</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #fff;
+            background: linear-gradient(-45deg, #2c3e50, #34495e, #8e44ad, #9b59b6, #e74c3c, #c0392b, #f39c12);
+            background-size: 400% 400%;
+            animation: cosmicShift 20s ease infinite;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        @keyframes cosmicShift {
+            0% { background-position: 0% 50%; }
+            33% { background-position: 100% 50%; }
+            66% { background-position: 50% 100%; }
+            100% { background-position: 0% 50%; }
+        }
+        
+        .cosmic-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: float 10s infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+            50% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); }
+        }
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(15px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+        }
+        
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+        
+        .nav-menu a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-menu a:hover, .nav-menu a.active {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+        }
+        
+        .content {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 8rem 2rem 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .page-title {
+            font-size: 4rem;
+            font-weight: 800;
+            text-align: center;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #fff, #f39c12, #e74c3c, #9b59b6, #3498db);
+            background-size: 500% 500%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: cosmicText 4s ease-in-out infinite;
+            text-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+        }
+        
+        @keyframes cosmicText {
+            0%, 100% { background-position: 0% 50%; }
+            25% { background-position: 100% 50%; }
+            50% { background-position: 50% 100%; }
+            75% { background-position: 100% 0%; }
+        }
+        
+        .theory-section {
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 3rem;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .theory-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #e74c3c, #f39c12, #f1c40f, #2ecc71, #3498db, #9b59b6);
+            background-size: 300% 100%;
+            animation: borderFlow 3s linear infinite;
+        }
+        
+        @keyframes borderFlow {
+            0% { background-position: 0% 0%; }
+            100% { background-position: 300% 0%; }
+        }
+        
+        .theory-section h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            color: #fff;
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.6);
+        }
+        
+        .theory-section p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
+        }
+        
+        .formula-box {
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .formula {
+            font-size: 1.5rem;
+            font-family: 'Courier New', monospace;
+            color: #f39c12;
+            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
+            margin: 1rem 0;
+        }
+        
+        .progress-indicator {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            border: 2px dashed rgba(255, 255, 255, 0.3);
+            margin-top: 3rem;
+        }
+        
+        .progress-indicator h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: progressGlow 2s ease-in-out infinite;
+        }
+        
+        @keyframes progressGlow {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        
+        @media (max-width: 768px) {
+            .page-title {
+                font-size: 2.5rem;
+            }
+            
+            .theory-section {
+                padding: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cosmic-particles" id="particles"></div>
+    
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">JvdM</a>
+            <ul class="nav-menu">
+                <li><a href="about.html">About</a></li>
+                <li><a href="publications.html">Publications</a></li>
+                <li><a href="theory-of-everything.html" class="active">Theory of Everything</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="content">
+        <h1 class="page-title">Theory of Everything</h1>
+        
+        <div class="theory-section">
+            <h2>🌌 The Grand Unified Vision</h2>
+            <p>Welcome to the most ambitious project of my career: developing a comprehensive Theory of Everything that unifies quantum mechanics, general relativity, consciousness, and information theory into a single, elegant framework.</p>
+            
+            <p>This isn't just another attempt at unification – it's a radical reimagining of reality itself, where consciousness, information, and physical processes are revealed to be different aspects of the same fundamental phenomenon.</p>
+        </div>
+        
+        <div class="theory-section">
+            <h2>⚛️ Core Principles</h2>
+            <p><strong>1. Information as Foundation:</strong> At the deepest level, reality is pure information. Matter, energy, space, and time emerge from informational processes.</p>
+            
+            <p><strong>2. Consciousness as Computational Process:</strong> Consciousness is not separate from physics but is the universe computing itself through self-aware information structures.</p>
+            
+            <p><strong>3. Geometric Unity:</strong> All fundamental forces and constants can be derived from the geometry of a higher-dimensional information space.</p>
+            
+            <div class="formula-box">
+                <div class="formula">Ψ(Universe) = ∫ I(x,t) · C(x,t) · G(x,t) dx dt</div>
+                <p style="margin-top: 1rem; font-style: italic;">Where I = Information, C = Consciousness, G = Geometry</p>
+            </div>
+        </div>
+        
+        <div class="theory-section">
+            <h2>🔬 Mathematical Framework</h2>
+            <p>The theory is built on a new mathematical structure I call "Conscious Information Geometry" (CIG), which extends traditional tensor calculus to include information-theoretic and consciousness-related terms.</p>
+            
+            <p>Key equations include the Information-Consciousness Field Equation, the Unified Constant Derivation, and the Quantum-Classical Bridge Formula – each providing testable predictions about the nature of reality.</p>
+            
+            <div class="formula-box">
+                <div class="formula">G_μν + Λg_μν = 8πG(T_μν + I_μν + C_μν)</div>
+                <p style="margin-top: 1rem; font-style: italic;">Extended Einstein Field Equations with Information and Consciousness terms</p>
+            </div>
+        </div>
+        
+        <div class="theory-section">
+            <h2>🧪 Testable Predictions</h2>
+            <p>Unlike many theories of everything, this framework makes specific, testable predictions:</p>
+            
+            <p><strong>• Quantum Consciousness Effects:</strong> Measurable correlations between quantum measurements and conscious observation patterns</p>
+            
+            <p><strong>• Information Conservation Laws:</strong> New conservation principles governing information flow in physical systems</p>
+            
+            <p><strong>• Emergent Spacetime Properties:</strong> Predictions about the granular structure of spacetime at the Planck scale</p>
+            
+            <p><strong>• Consciousness-Matter Interaction:</strong> Quantifiable effects of consciousness on quantum systems beyond standard observer effects</p>
+        </div>
+        
+        <div class="progress-indicator">
+            <h3>🚀 Current Status: 73% Complete</h3>
+            <p>The mathematical framework is largely complete, with experimental verification ongoing. The most exciting phase lies ahead as we prepare to test these revolutionary predictions!</p>
+            <p style="margin-top: 1rem; font-style: italic;">"The universe is not only stranger than we imagine, it is stranger than we can imagine... until now."</p>
+        </div>
+    </div>
+
+    <script>
+        function createParticle() {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = '100%';
+            particle.style.animationDelay = Math.random() * 10 + 's';
+            particle.style.animationDuration = (Math.random() * 5 + 10) + 's';
+            document.getElementById('particles').appendChild(particle);
+            
+            setTimeout(() => {
+                particle.remove();
+            }, 15000);
+        }
+        
+        setInterval(createParticle, 200);
+        
+        for (let i = 0; i < 30; i++) {
+            createParticle();
+        }
+    </script>
+</body>
+</html>
